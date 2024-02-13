@@ -1,3 +1,13 @@
+###
+# This code file contains an import of all of the libraries we expect to use in the final project at the top. 
+# Unused imports will be removed in the phase 4 submission. 
+# Then the dataset is loaded in as a CSV file downloaded from the same directory.
+# We summarize the dataset and replace the Class names with 0 and 1 before starting the cleaning process we check for missing values.
+# This particular dataset had no missing values so the only step of the cleaning process that changes the dataset is removal of outliers.
+# We include data visualizations before and after removing the outliers based off a z score of 3.
+###
+
+
 # Load libraries
 # remove unused imports in final project if code is turned in
 from pandas import read_csv
