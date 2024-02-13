@@ -34,7 +34,12 @@ names = ['area', 'major', 'minor', 'ecc', 'convex', 'extent', 'perimeter', 'clas
 dataset = read_csv('Raisin_Dataset_CSV.csv', header=0, names=names)
 # summarize the dataset
 print(dataset.describe())
+
+# replace class names with 0 or 1 values for classification
+dataset = dataset.replace('Kecimen', 0)
+dataset = dataset.replace('Besni', 1)
 print(dataset.sample(20))
+
 # count the missing values
 print(dataset.isnull().sum())
 
