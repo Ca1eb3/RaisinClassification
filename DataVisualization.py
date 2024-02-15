@@ -73,68 +73,68 @@ for col in dataset:
         print(col + ":" + str(list(indices)))
 
 
-# ----DATA PLOTS----
-
-# Box Plot
-dataset.plot(kind='box', subplots=True, layout=(3,3), sharex=False, sharey=False)
-plt.show()
-
-# Density Curve
-dataset.plot(kind='density', subplots=True, layout=(3, 3), sharex=False)
-plt.title("Data Density Before Cleaning")
-plt.show()
-
-
-# Histograms
-# Area Histogram
-x = dataset['area']
-plt.hist(x)
-plt.title("Area Histogram")
-plt.show()
-# Major Axis Length Histogram
-x = dataset['major']
-plt.hist(x)
-plt.title("Major Axis Length Histogram")
-plt.show()
-# Minor Axis Length Histogram
-x = dataset['minor']
-plt.hist(x)
-plt.title("Minor Axis Length Histogram")
-plt.show()
-# Eccentricity Histogram
-x = dataset['ecc']
-plt.hist(x)
-plt.title("Eccentricity Histogram")
-plt.show()
-# ConvexArea Histogram
-x = dataset['convex']
-plt.hist(x)
-plt.title("Convex Area Histogram")
-plt.show()
-# Extent Histogram
-x = dataset['extent']
-plt.hist(x)
-plt.title("Extent Histogram")
-plt.show()
-# Perimeter Histogram
-x = dataset['perimeter']
-plt.hist(x)
-plt.title("Perimeter Histogram")
-plt.show()
-
-
-# Correlation Matrix
-correlations = dataset.corr()
-fig = plt.figure()
-ax = fig.add_subplot(111)
-cax = ax.matshow(correlations, vmin=-1, vmax=1)
-fig.colorbar(cax)
-ticks = np.arange(0,8,1)
-ax.set_xticks(ticks)
-ax.set_yticks(ticks)
-ax.set_xticklabels(names)
-ax.set_yticklabels(names)
-plt.show()
+# # ----DATA PLOTS----
+#
+# # Box Plot
+# dataset.plot(kind='box', subplots=True, layout=(3,3), sharex=False, sharey=False)
+# plt.show()
+#
+# # Density Curve
+# dataset.plot(kind='density', subplots=True, layout=(3, 3), sharex=False)
+# plt.title("Data Density Before Cleaning")
+# plt.show()
+#
+#
+# # Histograms
+# # Area Histogram
+# x = dataset['area']
+# plt.hist(x)
+# plt.title("Area Histogram")
+# plt.show()
+# # Major Axis Length Histogram
+# x = dataset['major']
+# plt.hist(x)
+# plt.title("Major Axis Length Histogram")
+# plt.show()
+# # Minor Axis Length Histogram
+# x = dataset['minor']
+# plt.hist(x)
+# plt.title("Minor Axis Length Histogram")
+# plt.show()
+# # Eccentricity Histogram
+# x = dataset['ecc']
+# plt.hist(x)
+# plt.title("Eccentricity Histogram")
+# plt.show()
+# # ConvexArea Histogram
+# x = dataset['convex']
+# plt.hist(x)
+# plt.title("Convex Area Histogram")
+# plt.show()
+# # Extent Histogram
+# x = dataset['extent']
+# plt.hist(x)
+# plt.title("Extent Histogram")
+# plt.show()
+# # Perimeter Histogram
+# x = dataset['perimeter']
+# plt.hist(x)
+# plt.title("Perimeter Histogram")
+# plt.show()
+#
+#
+# # Correlation Matrix
+# correlations = dataset.corr()
+# fig = plt.figure()
+# ax = fig.add_subplot(111)
+# cax = ax.matshow(correlations, vmin=-1, vmax=1)
+# fig.colorbar(cax)
+# ticks = np.arange(0,8,1)
+# ax.set_xticks(ticks)
+# ax.set_yticks(ticks)
+# ax.set_xticklabels(names)
+# ax.set_yticklabels(names)
+# plt.show()
 
 
 # ----Clean the Data----
@@ -150,59 +150,81 @@ dataset = dataset.drop(outlier_indices)
 print(dataset.describe())
 
 
-# ----DATA PLOTS AFTER CLEANING----
+# # ----DATA PLOTS AFTER CLEANING----
+#
+# # Box Plot
+# dataset.plot(kind='box', subplots=True, layout=(3,3), sharex=False, sharey=False)
+# plt.show()
+#
+#
+#
+# # Density Plot
+# dataset.plot(kind='density', subplots=True, layout=(3, 3), sharex=False)
+# plt.title("Data Density After Cleaning")
+# plt.show()
+#
+#
+# # Histograms
+# # Area Histogram
+# x = dataset['area']
+# plt.hist(x)
+# plt.title("Area Histogram After Cleaning")
+# plt.show()
+# # Major Axis Length Histogram
+# x = dataset['major']
+# plt.hist(x)
+# plt.title("Major Axis Length Histogram After Cleaning")
+# plt.show()
+# # Minor Axis Length Histogram
+# x = dataset['minor']
+# plt.hist(x)
+# plt.title("Minor Axis Length Histogram After Cleaning")
+# plt.show()
+# # Eccentricity Histogram
+# x = dataset['ecc']
+# plt.hist(x)
+# plt.title("Eccentricity Histogram After Cleaning")
+# plt.show()
+# # ConvexArea Histogram
+# x = dataset['convex']
+# plt.hist(x)
+# plt.title("Convex Area Histogram After Cleaning")
+# plt.show()
+# # Extent Histogram
+# x = dataset['extent']
+# plt.hist(x)
+# plt.title("Extent Histogram After Cleaning")
+# plt.show()
+# # Perimeter Histogram
+# x = dataset['perimeter']
+# plt.hist(x)
+# plt.title("Perimeter Histogram After Cleaning")
+# plt.show()
+#
+#
+# # Correlation Matrix
+# correlations = dataset.corr()
+# fig = plt.figure()
+# ax = fig.add_subplot(111)
+# cax = ax.matshow(correlations, vmin=-1, vmax=1)
+# fig.colorbar(cax)
+# ticks = np.arange(0,8,1)
+# ax.set_xticks(ticks)
+# ax.set_yticks(ticks)
+# ax.set_xticklabels(names)
+# ax.set_yticklabels(names)
+# plt.show()
 
-# Box Plot
-dataset.plot(kind='box', subplots=True, layout=(3,3), sharex=False, sharey=False)
-plt.show()
+# ---- PHASE 3 ----
 
+# Normalize the data using min max normalization
+dataset = dataset
+for col in dataset:
+    if col != 'class':
+        dataset[[col]] = (dataset[[col]] - dataset [[col]].min()) / (dataset[[col]].max() - dataset[[col]].min())
+print(dataset.describe())
 
-
-# Density Plot
-dataset.plot(kind='density', subplots=True, layout=(3, 3), sharex=False)
-plt.title("Data Density After Cleaning")
-plt.show()
-
-
-# Histograms
-# Area Histogram
-x = dataset['area']
-plt.hist(x)
-plt.title("Area Histogram After Cleaning")
-plt.show()
-# Major Axis Length Histogram
-x = dataset['major']
-plt.hist(x)
-plt.title("Major Axis Length Histogram After Cleaning")
-plt.show()
-# Minor Axis Length Histogram
-x = dataset['minor']
-plt.hist(x)
-plt.title("Minor Axis Length Histogram After Cleaning")
-plt.show()
-# Eccentricity Histogram
-x = dataset['ecc']
-plt.hist(x)
-plt.title("Eccentricity Histogram After Cleaning")
-plt.show()
-# ConvexArea Histogram
-x = dataset['convex']
-plt.hist(x)
-plt.title("Convex Area Histogram After Cleaning")
-plt.show()
-# Extent Histogram
-x = dataset['extent']
-plt.hist(x)
-plt.title("Extent Histogram After Cleaning")
-plt.show()
-# Perimeter Histogram
-x = dataset['perimeter']
-plt.hist(x)
-plt.title("Perimeter Histogram After Cleaning")
-plt.show()
-
-
-# Correlation Matrix
+# Analyze the Correlation Matrix post normalization
 correlations = dataset.corr()
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -214,3 +236,11 @@ ax.set_yticks(ticks)
 ax.set_xticklabels(names)
 ax.set_yticklabels(names)
 plt.show()
+
+
+# Drop Features with low correlation
+# The lowest feature will be dropped.
+# We chose to drop extent (which had a correlation of -0.145).
+# We chose not to do PCA because we have a limited number of features and samples.
+dataset = dataset.drop(dataset.columns[[5]], axis=1)
+print(dataset.describe())
